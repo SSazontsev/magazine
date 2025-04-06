@@ -31,7 +31,7 @@
                 <img src="{% static 'img/cart.png' %}" alt="">
             </a>
             <div class="forsearch">
-                <a href="#" id="toggle-search" class="toggle-search">
+                <a href="{% url 'cart:cart_detail' %}" id="toggle-search" class="toggle-search">
                     <img src="{% static 'img/search.png' %}" alt="">
                 </a>
                 <div class="search-popup" id="search-popup" style="display: none;">
