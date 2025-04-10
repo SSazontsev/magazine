@@ -1,7 +1,6 @@
 {% extends "main/base.html" %}
-
 {% load static %}
- 
+
 {% block title %}Reverence Interlude - {{ clothing_item.name }}{% endblock title %}
 
 {% block content %}
@@ -10,14 +9,14 @@
             {% for image in clothing_item.images.all %}
                 <img src="{{ image.image.url }}" style="display: none;" alt="{{ clothing_item.name }}" class="detail-image" data-index="{{ forloop.counter0 }}">
             {% endfor %}
-            <div class="image-nav">
+            <div class="image-nav d-flex justify-content-between">
                 <buttton class="prev-btn">&lsaquo;</buttton>
                 <buttton class="next-btn">&rsaquo;</buttton>
             </div>
         </div>
 
         <div class="detail-description">
-            <h2>{{ clothing_item.name }}</h2>
+            <h2 class="text-uppercase">{{ clothing_item.name }}</h2>
             <h3 class="item-desc">{{ clothing_item.description|linebreaks }}</h3>
             <div class="sizes">
                 <p>Available sizes:
@@ -76,10 +75,10 @@
         const prevBtn = document.querySelector('.prev-btn');
         const nextBtn = document.querySelector('.next-btn');
         let currentIndex = 0;
-    
+
         if (images.length > 0) {
             images[currentIndex].style.display = 'block';
-    
+
             if (images.length === 1) {
                 prevBtn.style.display = 'none';
                 nextBtn.style.display = 'none';
@@ -89,10 +88,10 @@
                     currentIndex = (currentIndex - 1 + images.length) % images.length;
                     images[currentIndex].style.display = 'block';
                 });
-    
+
                 nextBtn.addEventListener('click', () => {
                     images[currentIndex].style.display = 'none';
-                    currentIndex = (currentIndex + 1) % images.length; 
+                    currentIndex = (currentIndex + 1) % images.length;
                     images[currentIndex].style.display = 'block';
                 });
             }
