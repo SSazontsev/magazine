@@ -9,6 +9,7 @@ class CatalogView(ListView):
     template_name = 'main/product/list.html'
     context_object_name = 'clothing_items'
 
+
     def get_queryset(self):
         queryset = super().get_queryset()
         category_slugs = self.request.GET.getlist('category')
